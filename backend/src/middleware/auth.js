@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
         const verified = jwt.verify(token, process.env.JWT_SECRET);
             if (!verifed)
                 return res
-                .status(402)
+                .status(403)
                 .json({msg: "No verificacion de token"})
     } catch (err){
         res.status(500).json({error: err.message})
