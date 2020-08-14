@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors ())
 
 //settings
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3001)
 
 //Middlewares
 
@@ -19,6 +19,8 @@ app.set('port', process.env.PORT || 3000)
 //Routes
 
 app.use ('/usuario', require('./routes/usuarioRutaRegistro'));
-app.use ('/usuario', require('./routes/usuarioRutaLogin'))
+app.use ('/usuario', require('./routes/usuarioRutaLogin'));
+app.use ('/usuario', require('./routes/usuarioRutaDelete'));
+app.use ('/usuario', require('./routes/usuarioRutaGetRol'))
 
 module.exports = app;
