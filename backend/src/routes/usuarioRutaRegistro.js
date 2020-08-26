@@ -5,10 +5,10 @@ const User = require ('../models/user')
 
 router.post("/registro", async (req, res)=>{
     try{
-    let { usuario, password, passwordCheck, nombreUsuario, rol} =req.body;
+    let { usuario, password, passwordCheck, nombreUsuario, rol, estado} =req.body;
     
     //validaciones
-        if (!usuario || !password || !passwordCheck || !rol)
+        if (!usuario || !password || !passwordCheck || !rol || !estado)
             return res
             .status(400).json({ msg: "no se a ingresado los datos requeridos"});
         if (password.length < 5)
@@ -31,7 +31,8 @@ router.post("/registro", async (req, res)=>{
             usuario,
             password: passwordHash,
             nombreUsuario, 
-            rol
+            rol,
+            estado
         });
 
         const usuarioGuardado = await newUser.save()

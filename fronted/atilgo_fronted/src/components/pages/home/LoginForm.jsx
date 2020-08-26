@@ -8,8 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import logo from './logoserver.svg';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles ({
@@ -21,12 +20,11 @@ const useStyles = makeStyles ({
     root :{
       margin: theme.spacing(30),
       padding: theme.spacing(15),
-       background : "linear-gradient(0deg, #689f38 30%,#ffcc80 90% )"
+       background : "linear-gradient(0deg, #689f38 30%,#ffe0b2 90% )"
     },
     avatar :{
-      fontSize: '80px',
-      width: theme.spacing (25),
-      height: theme.spacing (25),
+      width: theme.spacing (30),
+      height: theme.spacing (30),
     }     
 })
 
@@ -37,13 +35,11 @@ function LoginForm() {
           <Container>
             <Box className = {classes.root}  borderRadius=  {20}>
               <div className = {classes.box}>
-                <Avatar className = {classes.avatar} src = "//home/aatiencia/atilogistic/fronted/atilgo_fronted/src/estaticos/imagens/logoserver.svg"
-                        size = {100}
-                        borderRadius = {50}
-                >
+                <Avatar  src = {logo} className = {classes.avatar}>
+
                 </Avatar>
-                <Typography component="h1" variant="h5">
-                  Atilogistic
+                <Typography component="h1" variant="h5" >
+                  ATILOGISTIC
                 </Typography>
                 <form  noValidate>
                   <TextField
@@ -56,7 +52,7 @@ function LoginForm() {
                     name="email"
                     autoComplete="email"
                     autoFocus
-                    color="primary"
+                    color="secondary"
                   />
                   <TextField
                     variant="outlined"

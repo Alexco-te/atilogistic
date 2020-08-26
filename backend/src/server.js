@@ -21,6 +21,10 @@ app.set('port', process.env.PORT || 3001)
 app.use ('/usuario', require('./routes/usuarioRutaRegistro'));
 app.use ('/usuario', require('./routes/usuarioRutaLogin'));
 app.use ('/usuario', require('./routes/usuarioRutaDelete'));
-app.use ('/usuario', require('./routes/usuarioRutaGetRol'))
+app.use ('/usuario', require('./routes/usuarioRutaGeToken'));
+app.use ('/usuario', require('./routes/usuarioRutaUsuario'));
+app.use ('/usuario', require('./routes/usarioRutaDatos'));
+app.use ('/usuario', require('./routes/usuarioRutaPrueba'));
+
 
 module.exports = app;
