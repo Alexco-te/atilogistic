@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors ())
 
 //settings
-app.set('port', process.env.PORT || 3001)
+app.set('port', process.env.PORT || 3002)
 
 //Middlewares
 

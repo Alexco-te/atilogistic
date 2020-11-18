@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter, Switch, Route} from "react-router-dom"
-import Home from './components/pages/home/Home';
-import UserContext from './context/UserContext';
 import Axios from 'axios'
-
-
+import {useDispatch, useSelector, Provider} from 'react-redux'
+import generateStore from '../src/redux/store'
+import {login} from  "../src/redux/usuarioDuck"
 
 function App() {
+    const store = generateStore ()
+    const dispatch = useDispatch ()
     const [userData, setUserData] = useState({
         token: undefined,
         user: undefined
@@ -37,16 +37,12 @@ function App() {
         logeado();
     
     }, []);
-    return (<>
-       <BrowserRouter>
-        <UserContext.Provider value = {{userData ,setUserData}}>
-        <Switch>
-            <Route exact path= "/" component={Home}/>
-        </Switch>
-
-        </UserContext.Provider>
-       </BrowserRouter>
-    </>
+    return (
+        <Provider store = {store}>
+        <div>
+            carlos
+        </div>
+        </Provider>
     );
  }
 
