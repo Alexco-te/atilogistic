@@ -1,10 +1,21 @@
-import React, { Fragment, useState} from 'react';
+import React, { Fragment, useEffect, useState} from 'react';
 import Cita from './componentes/Cita';
 import Formulario from './componentes/Formulario';
 
 function App() {
 
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  if(!citasIniciales) {
+    citasIniciales = [];
+  }
+
   const [citas, setCitas] = useState([])
+
+  //use effect cambio usestate
+
+  useEffect (()=>{
+    console.log('Documentos listo o algo paso con las citas');
+  },[citas])
 
   // FUNCION AGREGAR CITA
 
@@ -14,6 +25,13 @@ function App() {
       cita
     ]);
   }
+    //Funsion eliminar cita
+    const eliminarCita = id => {
+      const nuevasCitas = citas.filter(citas => citas.id !== id)
+      setCitas(nuevasCitas)
+    }
+    const titulo =citas.length === 0 ? "No hay citas" : "Administra tus citas"
+
   return (
     <Fragment>
 
@@ -28,12 +46,13 @@ function App() {
         </div>
         <div className='one-half column'>
           <h2>
-            Administrar citas
+            {titulo}
           </h2>
           {citas.map(cita=>(
             <Cita
             key={cita.id}
             cita={cita}
+            eliminarCita={eliminarCita}
             />
           ))}
         </div>
