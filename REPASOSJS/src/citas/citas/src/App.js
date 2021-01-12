@@ -2,20 +2,26 @@ import React, { Fragment, useEffect, useState} from 'react';
 import Cita from './componentes/Cita';
 import Formulario from './componentes/Formulario';
 
+
 function App() {
 
-  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+let citasIniciales = JSON.parse(localStorage.getItem('citas'));
   if(!citasIniciales) {
     citasIniciales = [];
   }
 
-  const [citas, setCitas] = useState([])
+  const [citas, setCitas] = useState(citasIniciales)
 
   //use effect cambio usestate
 
   useEffect (()=>{
-    console.log('Documentos listo o algo paso con las citas');
-  },[citas])
+    let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+    if(citasIniciales){
+      localStorage.setItem('citas', JSON.stringify(citas))
+    } else{
+      localStorage.setItem('citas',JSON.stringify([]));
+    } 
+  }, [citas] );
 
   // FUNCION AGREGAR CITA
 
