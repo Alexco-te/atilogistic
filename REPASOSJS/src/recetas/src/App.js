@@ -1,0 +1,20 @@
+import React, { Fragment } from 'react';
+import Form from './componentes/Form';
+import Header from './componentes/Header';
+
+function App() {
+  return (
+ <Fragment>
+   <Header/>
+   <div className=" container mt-5">
+      <div className="row">
+      <Form>
+        
+      </Form>
+      </div>
+   </div>
+ </Fragment>
+  );
+}
+
+export default App;
