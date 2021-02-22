@@ -2,9 +2,15 @@ const express = require ('express')
 const app = express();
 require ('./ db');
 require ('./models/Rol')
+const cors = require ('cors')
+
 
 
 app.use(express.json({extende:true}))
+
+app.use(cors({
+    origin:process.env.Cors
+}))
 
 app.set('port', process.env.PORT || 4001)
 

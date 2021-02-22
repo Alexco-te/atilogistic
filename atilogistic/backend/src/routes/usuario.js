@@ -12,7 +12,7 @@ router.post ('/',
     check('usuario','El usuario es obligatorio').not().isEmpty(),
     check('password','El password  es obligatorio').not().isEmpty(),
     check('password','El password debe ser > a 6 caracteres').isLength({min: 6}),
-    check('rol','El rol es obligatorio').not().isEmpty()
+    check('role','El rol es obligatorio').not().isEmpty()
 ],
     usercontroller.crearUsuario
 );
